@@ -25,9 +25,9 @@ app.use("/api/admin", adminRoutes)
 
 async function main() {
     await mongoose.connect(process.env.DB_URL);
-    app.use('/', (req, res) => {
-        res.send('Book server')
-      });
+    app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
   }
   main().then(()=> console.log("Mongodb connected successfully")).catch(err => console.log(err));
 
