@@ -9,9 +9,11 @@ require('dotenv').config()
 // middleware
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://bookify-frontend-vw31.vercel.app'],
-    credentials: true
-}))
+  origin: ['http://localhost:5173', 'https://bookify-frontend-vw31.vercel.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 
 // routes
 const bookRoutes = require('./src/books/book.route');
